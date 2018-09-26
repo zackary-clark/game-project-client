@@ -12,22 +12,23 @@
         <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body>
-        <h1>Browser Template</h1>
+        <h1>Tic Tac Toe</h1>
+        <button id="new-game">New Game</button>
         <div class="container game-board">
-            <div class="row top">
-                <div class="col-4 top-left game-tile">top-left</div>
-                <div class="col-4 top-middle game-tile">top-middle</div>
-                <div class="col-4 top-right game-tile">top-right</div>
+            <div class="row">
+                <div class="col-4 top left left-to-right game-tile" id="0">top-left</div>
+                <div class="col-4 top middle-col game-tile" id="1">top-middle</div>
+                <div class="col-4 top right right-to-left game-tile" id="2">top-right</div>
             </div>
-            <div class="row middle">
-                <div class="col-4 middle-left game-tile">middle-left</div>
-                <div class="col-4 middle-middle game-tile">middle-middle</div>
-                <div class="col-4 middle-right game-tile">middle-right</div>
+            <div class="row">
+                <div class="col-4 middle-row left game-tile" id="3">middle-left</div>
+                <div class="col-4 middle-row middle-col left-to-right right-to-left game-tile" id="4">middle-middle</div>
+                <div class="col-4 middle-row right game-tile" id="5">middle-right</div>
             </div>
-            <div class="row bottom">
-                <div class="col-4 bottom-left game-tile">bottom-left</div>
-                <div class="col-4 bottom-middle game-tile">bottom-middle</div>
-                <div class="col-4 bottom-right game-tile">bottom-right</div>
+            <div class="row">
+                <div class="col-4 bottom left right-to-left game-tile" id="6">bottom-left</div>
+                <div class="col-4 bottom middle-col game-tile" id="7">bottom-middle</div>
+                <div class="col-4 bottom right left-to-right game-tile" id="8">bottom-right</div>
             </div>
         </div>
     </body>
