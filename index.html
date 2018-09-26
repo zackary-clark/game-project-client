@@ -1,17 +1,34 @@
 <!DOCTYPE html>
 <html>
     <head>
-      <title>Example</title>
-      <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Example</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-      <!-- Do not add `link` tags-->
-      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+        <!-- Do not add `link` tags-->
+        <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
 
-      <!-- Do not add `script` tags-->
-      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
-      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+        <!-- Do not add `script` tags-->
+        <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+        <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body>
-      <h1>Browser Template</h1>
+        <h1>Browser Template</h1>
+        <div class="container game-board">
+            <div class="row top">
+                <div class="col-4 top-left game-tile">top-left</div>
+                <div class="col-4 top-middle game-tile">top-middle</div>
+                <div class="col-4 top-right game-tile">top-right</div>
+            </div>
+            <div class="row middle">
+                <div class="col-4 middle-left game-tile">middle-left</div>
+                <div class="col-4 middle-middle game-tile">middle-middle</div>
+                <div class="col-4 middle-right game-tile">middle-right</div>
+            </div>
+            <div class="row bottom">
+                <div class="col-4 bottom-left game-tile">bottom-left</div>
+                <div class="col-4 bottom-middle game-tile">bottom-middle</div>
+                <div class="col-4 bottom-right game-tile">bottom-right</div>
+            </div>
+        </div>
     </body>
 </html>
