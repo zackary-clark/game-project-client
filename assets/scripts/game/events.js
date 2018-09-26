@@ -25,6 +25,9 @@ const checkForWin = function(game) {
         return [true, board[0], 'left-to-right']
     } else if (board[2] === board[4] && board[2] === board[6] && board[2] !== '') {
         return [true, board[2], 'right-to-left']
+    } else if (board.every(element => element !== '')) {
+        console.log('Draw!')
+        return [true, '', '']
     } else {
         return [false, '', '']
     }
@@ -70,12 +73,18 @@ const onMakeMove = function(event) {
         if (winReturn[0]) {
             store.game.over = true
             console.log('Game Over')
-            console.log(`Player ${winReturn[1]} Won!\nThe winning line was ${winReturn[2]}`)
-            // update ui telling the player they won
-            ui.gameOver(winReturn[2])
-            // update the api with game over true
+            if (winReturn[1] !== '') {
+                console.log(`Player ${winReturn[1]} Won!\nThe winning line was ${winReturn[2]}`)
+                // update ui telling the player who won
+                ui.gameOverWin(winReturn[2])
+                // update the api with game over true
+            } else {
+                console.log('Draw!')
+                // update ui telling the player they drew
 
-         }
+                // update the api with game over true
+            }
+        }
     } else {
        console.log('choose a new spot!')
     }

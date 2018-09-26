@@ -2,14 +2,14 @@
 
 const store = {
     // development only. Delete contents when api functionality is added
-    currentTurn: 'player_x',
+    // currentTurn: 'player_x'
 
-    user: {
-        id: 1,
-        email: 'zack@canttestthis.com'
-    },
+    // user: {
+    //     id: 1,
+    //     email: 'zack@canttestthis.com'
+    // },
 
-    userToken: 'TestToken',
+    // userToken: 'TestToken',
 
     // game: {
     //         id: 1,

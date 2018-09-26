@@ -13,7 +13,7 @@ const refreshBoard = function () {
     }
 }
 
-const gameOver = function (gridLine) {
+const gameOverWin = function (gridLine) {
     console.log(`.${gridLine}`)
     $(`.${gridLine}`).css('background-color', 'red')
 }
@@ -21,5 +21,5 @@ const gameOver = function (gridLine) {
 module.exports = {
     updateGameBoard,
     refreshBoard,
-    gameOver
+    gameOverWin
 }
