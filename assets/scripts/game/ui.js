@@ -20,7 +20,7 @@ const refreshBoard = function (data) {
     logic.storeNewGame(data)
     for (let i = 0; i < store.game.cells.length; i++) {
         $(`#${i}`).html('')
-        $(`#${i}`).css('background-color', '#444444')
+        $(`#${i}`).css('background-color', '343a40')
     }
     $('.game-board').show()
     clearDisplayMessage()
@@ -56,9 +56,17 @@ const hideGameBoard = function () {
 
 const showGetGames = function (data) {
     $('.display-games').show()
-    $('.display-games').text(data.games.length)
-    $('.display-games').css('color', 'blue')
-    console.log(data)
+    $('.display-games').html('Played Games')
+    $('.display-games').css('color', 'white')
+    data.games.forEach(game => {
+        const gameHTML = (`
+        <h4>ID: ${game.id}</h4>
+        <p>Board: ${game.cells.toString()}</p>
+        <p>Over? ${game.over}</p>
+        <br>
+      `)
+      $('.display-games').append(gameHTML)
+    })
 }
 
 const failure = function() {

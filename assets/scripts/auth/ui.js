@@ -7,6 +7,7 @@ const signUpSuccess = function(data) {
     $('.display-message').css('color', 'green')
     $('#sign-up-form').trigger('reset')
     $('#sign-in-form').trigger('reset')
+    $('#change-password').trigger('reset')
     $('#sign-up-form').hide()
     $('#sign-in-form').show()
     $('#sign-up-button').show()
@@ -24,6 +25,7 @@ const signInSuccess = function(data) {
     $('#sign-out-button').show()
     $('#sign-up-form').trigger('reset')
     $('#sign-in-form').trigger('reset')
+    $('#change-password').trigger('reset')
     $('.game-board').show()
     $('#new-game').show()
     $('#get-games').show()
@@ -48,17 +50,17 @@ const changePasswordSuccess = function() {
 const showChangePassword = function() {
     $('#show-change-password').hide()
     $('#change-password').show()
-    $('.game-board').hide()
-    $('#new-game').hide()
-    $('#get-games').hide()
-    $('.display-games').hide()
+    // $('.game-board').hide()
+    // $('#new-game').hide()
+    // $('#get-games').hide()
+    // $('.display-games').hide()
 }
 
 const showSignUp = function() {
     console.log('in ui.showSignUp')
     $('#sign-up-button').hide()
     $('#sign-up-form').show()
-    $('#sign-in-form').hide()
+    $('#sign-in-form').show()
     $('.display-games').hide()
 }
 
@@ -69,6 +71,7 @@ const signOutSuccess = function() {
     $('#sign-in-form').show()
     $('#sign-up-form').trigger('reset')
     $('#sign-in-form').trigger('reset')
+    $('#change-password').trigger('reset')
     $('#show-change-password').hide()
     $('#change-password').hide()
     $('#sign-out-button').hide()
