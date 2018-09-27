@@ -2,8 +2,7 @@
 
 const store = require('../store')
 
-const checkForWin = function(game) {
-    const board = game.cells
+const checkForWin = function(board) {
     if (board[0] === board[1] && board[0] === board[2] && board[0] !== '') {
         return [true, board[0], 'top']
     } else if (board[3] === board[4] && board[3] === board[5] && board[3] !== '') {
@@ -27,13 +26,9 @@ const checkForWin = function(game) {
     }
 }
 
-const storeNewGame = function () {
-    store.game = {}
-    store.game.id = 1/*whatever id we get back*/
-    store.game.cells = ['','','','','','','','','']
-    store.game.over = false
-    store.game.player_x = store.user
-    store.game.player_o = store.user
+const storeNewGame = function (data) {
+    store.game = data.game
+    store.gameBoard = ['','','','','','','','','']
     store.currentTurn = 'player_x'
 }
 

@@ -8,48 +8,50 @@ const logic = require('./logic')
 
 const onNewGame = function(event) {
     event.preventDefault()
-    // send new game request to api, get back id
+    api.newGame()
+        .then(ui.refreshBoard)
+        .catch(ui.failure)
+}
 
-    logic.storeNewGame()
-    ui.refreshBoard()
-    ui.clearDisplayMessage()
+const onGetGames = function (event) {
+    event.preventDefault()
+    api.getGames()
+        .then(ui.showGetGames)
+        .catch(ui.failure)
 }
 
 const onMakeMove = function(event) {
     event.preventDefault()
     ui.clearDisplayMessage()
     const index = event.currentTarget.id
-    // auto new game when current game is over or there is no current game
     if (!('game' in store)) {
-        onNewGame(event)
+        ui.startNewGame()
+        return
     } else if (store.game.over) {
-        onNewGame(event)
+        ui.startNewGame()
+        return
     }
-    const gameBoard = store.game.cells
+    const gameBoard = store.gameBoard
     const char = store.currentTurn === 'player_x' ? 'x' : 'o'
     if (gameBoard[index] === '') {
         gameBoard[index] = char
-        ui.updateGameBoard(index)
         store.currentTurn = store.currentTurn === 'player_x' ? 'player_o' : 'player_x'
-        // send game update to server
-
-        // check for game win
-        const winReturn = logic.checkForWin(store.game)
+        const winReturn = logic.checkForWin(gameBoard)
         if (winReturn[0]) {
-            // update the api with game over true
-
+            api.updateGame(index, char, true)
+                .then(ui.updateGameBoard)
+                .catch(ui.updateGameBoardFailure)
             store.game.over = true
             if (winReturn[1] !== '') {
                 // console.log(`Player ${winReturn[1]} Won!\nThe winning line was ${winReturn[2]}`)
                 ui.gameOverWin(winReturn[2])
-                // update the api with game over true
-
             } else {
-                console.log('Draw!')
                 ui.gameOverDraw()
-                // update the api with game over true
-
             }
+        } else {
+            api.updateGame(index, char)
+                .then(ui.updateGameBoard)
+                .catch(ui.updateGameBoardFailure)
         }
     } else {
        ui.spotTaken()
@@ -58,5 +60,6 @@ const onMakeMove = function(event) {
 
 module.exports = {
     onMakeMove,
-    onNewGame
+    onNewGame,
+    onGetGames
 }

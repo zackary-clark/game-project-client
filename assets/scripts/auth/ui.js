@@ -10,13 +10,13 @@ const signUpSuccess = function(data) {
     $('#sign-up-form').hide()
     $('#sign-in-form').show()
     $('#sign-up-button').show()
+    $('.display-games').hide()
 }
 
 const signInSuccess = function(data) {
     $('.display-message').text(`Successfully Signed In!\nID: ${data.user.id}`)
     $('.display-message').css('color', 'green')
     store.user = data.user
-    store.userToken = data.user.token
     $('#sign-up-form').hide()
     $('#sign-in-form').hide()
     $('#sign-up-button').hide()
@@ -26,6 +26,8 @@ const signInSuccess = function(data) {
     $('#sign-in-form').trigger('reset')
     $('.game-board').show()
     $('#new-game').show()
+    $('#get-games').show()
+    $('.display-games').hide()
 }
 
 const changePasswordSuccess = function() {
@@ -39,6 +41,8 @@ const changePasswordSuccess = function() {
     $('#change-password').trigger('reset')
     $('.game-board').show()
     $('#new-game').show()
+    $('#get-games').show()
+    $('.display-games').hide()
 }
 
 const showChangePassword = function() {
@@ -46,6 +50,8 @@ const showChangePassword = function() {
     $('#change-password').show()
     $('.game-board').hide()
     $('#new-game').hide()
+    $('#get-games').hide()
+    $('.display-games').hide()
 }
 
 const showSignUp = function() {
@@ -53,11 +59,12 @@ const showSignUp = function() {
     $('#sign-up-button').hide()
     $('#sign-up-form').show()
     $('#sign-in-form').hide()
+    $('.display-games').hide()
 }
 
 const signOutSuccess = function() {
-    $('.display-message').text('Successfully Logged Out!')
-    $('.display-message').css('color', 'green')
+    $('.display-message').hide()
+    clearDisplayMessage()
     $('#sign-up-form').hide()
     $('#sign-in-form').show()
     $('#sign-up-form').trigger('reset')
@@ -68,6 +75,8 @@ const signOutSuccess = function() {
     $('.game-board').hide()
     $('#new-game').hide()
     $('#sign-up-button').show()
+    $('#get-games').hide()
+    $('.display-games').hide()
 }
 
 const failure = function() {

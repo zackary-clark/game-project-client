@@ -18,6 +18,8 @@ $(() => {
     $('#sign-out-button').hide()
     $('#new-game').hide()
     $('.game-board').hide()
+    $('#get-games').hide()
+    $('.display-games').hide()
 
     // add event handlers for user api use
     $('#sign-up-form').on('submit', authEvents.onSignUp)
@@ -26,6 +28,9 @@ $(() => {
     $('#show-change-password').on('click', authEvents.onShowChangePassword)
     $('#change-password').on('submit', authEvents.onChangePassword)
     $('#sign-out-button').on('click', authEvents.onSignOut)
+
+    // add event handlers gor game api use
+    $('#get-games').on('click', gameEvents.onGetGames)
 
     // make moves if tiles are clicked on
     $('#0').on('click', gameEvents.onMakeMove)
