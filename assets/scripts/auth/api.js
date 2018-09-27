@@ -31,7 +31,6 @@ const changePassword = function(data) {
 }
 
 const signOut = function() {
-    console.log(store.userToken)
     return $.ajax({
         url: config.apiUrl + '/sign-out',
         headers: {

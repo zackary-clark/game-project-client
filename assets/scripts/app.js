@@ -22,7 +22,7 @@ $(() => {
     // add event handlers for user api use
     $('#sign-up-form').on('submit', authEvents.onSignUp)
     $('#sign-in-form').on('submit', authEvents.onSignIn)
-    $('#sign-in-button').on('click', authEvents.onShowSignUp)
+    $('#sign-up-button').on('click', authEvents.onShowSignUp)
     $('#show-change-password').on('click', authEvents.onShowChangePassword)
     $('#change-password').on('submit', authEvents.onChangePassword)
     $('#sign-out-button').on('click', authEvents.onSignOut)

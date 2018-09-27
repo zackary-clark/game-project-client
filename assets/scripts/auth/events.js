@@ -45,6 +45,7 @@ const onSignOut = function(event) {
 const onShowSignUp = function(event) {
     event.preventDefault()
     ui.showSignUp()
+    console.log('in events.onShowSignUp')
 }
 
 module.exports = {

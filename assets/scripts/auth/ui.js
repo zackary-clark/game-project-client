@@ -7,6 +7,9 @@ const signUpSuccess = function(data) {
     $('.display-message').css('color', 'green')
     $('#sign-up-form').trigger('reset')
     $('#sign-in-form').trigger('reset')
+    $('#sign-up-form').hide()
+    $('#sign-in-form').show()
+    $('#sign-up-button').show()
 }
 
 const signInSuccess = function(data) {
@@ -46,6 +49,7 @@ const showChangePassword = function() {
 }
 
 const showSignUp = function() {
+    console.log('in ui.showSignUp')
     $('#sign-up-button').hide()
     $('#sign-up-form').show()
     $('#sign-in-form').hide()
@@ -71,11 +75,17 @@ const failure = function() {
     $('.display-message').css('color', 'red')
 }
 
+const clearDisplayMessage = function () {
+    $('.display-message').text('')
+}
+
 module.exports = {
     signUpSuccess,
     signInSuccess,
     failure,
     changePasswordSuccess,
     signOutSuccess,
-    showChangePassword
+    showSignUp,
+    showChangePassword,
+    clearDisplayMessage
 }
