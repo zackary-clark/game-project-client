@@ -2,20 +2,45 @@
 
 body {
     background-color: #000000;
-    color: #0cfc04;
+    color: #B7B7AB;
+    font-family: 'Slabo 27px', serif;
 }
 
 .game-board {
-    background-color: #343a40;
     max-width: 600px;
-    color: #0cfc04;
+    color: #B7B7AB;
+
+    .game-tile {
+        background-color: #343a40;
+        width: 200px;
+        height: 200px;
+        line-height: 180px;
+        font-size: 140px;
+        border: 3px solid #000000;
+    }
 }
 
 .game-tile {
-    border: 2px solid #000000;
-    width: 200px;
-    height: 200px;
-    line-height: 180px;
-    font-size: 140px;
-    font-family: 'Caveat Brush', cursive;
+    font-family: 'Rock Salt', cursive;
+}
+
+.mini-board {
+    max-width: 150px;
+    color: #B7B7AB;
+    margin: 0 auto;
+
+    .row {
+        max-width: 150px;
+        margin: 0;
+    }
+
+    .game-tile {
+        background-color: #343a40;
+        width: 50px;
+        height: 50px;
+        line-height: 45px;
+        font-size: 35px;
+        margin: 0;
+        border: 1px solid #000000;
+    }
 }

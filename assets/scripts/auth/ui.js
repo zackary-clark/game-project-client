@@ -57,11 +57,13 @@ const showChangePassword = function() {
 }
 
 const showSignUp = function() {
-    console.log('in ui.showSignUp')
     $('#sign-up-button').hide()
     $('#sign-up-form').show()
     $('#sign-in-form').show()
     $('.display-games').hide()
+    $('#sign-up-form').trigger('reset')
+    $('#sign-in-form').trigger('reset')
+    $('#change-password').trigger('reset')
 }
 
 const signOutSuccess = function() {
@@ -79,6 +81,8 @@ const signOutSuccess = function() {
     $('#new-game').hide()
     $('#sign-up-button').show()
     $('#get-games').hide()
+    $('.display-games').hide()
+    $('.game-table').html('')
     $('.display-games').hide()
 }
 

@@ -7,6 +7,8 @@
         <!-- Do not add `link` tags-->
         <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
         <link href="https://fonts.googleapis.com/css?family=Caveat+Brush" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Rock+Salt" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Slabo+27px" rel="stylesheet">
 
         <!-- Do not add `script` tags-->
         <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
@@ -16,43 +18,62 @@
         <h1>Tic Tac Toe</h1>
         <div class="display-message"></div>
         <form id="sign-in-form">
-            <input required class="col-12 col-md-3 form-control" name="credentials[email]" type="email" placeholder="Enter Email" />
-            <input required class="col-12 col-md-3 form-control" name="credentials[password]" type="password" placeholder="Enter Password" />
+            <div class="form-group">
+                <label for="sign-in-email">Email address</label>
+                <input required class="form-control" id="sign-in-email" name="credentials[email]" type="email" placeholder="Email" />
+            </div>
+            <div class="form-group">
+                <label for="sign-in-pass">Password</label>
+                <input required class="form-control" id="sign-in-pass" name="credentials[password]" type="password" placeholder="Enter Password" />
+            </div>
             <input class="btn btn-dark" type="submit" value="Sign In" />
         </form>
         <button type="button" class="btn btn-dark" id="sign-up-button">Register</button>
         <form id="sign-up-form">
-            <input required name="credentials[email]" type="email" placeholder="Enter Email" />
-            <input required name="credentials[password]" type="password" placeholder="Enter Password" />
-            <input required name="credentials[password_confirmation]" type="password" placeholder="Confirm Password" />
+            <input required class="form-control" name="credentials[email]" type="email" placeholder="Enter Email" />
+            <input required class="form-control" name="credentials[password]" type="password" placeholder="Enter Password" />
+            <input required class="form-control" name="credentials[password_confirmation]" type="password" placeholder="Confirm Password" />
             <input type="submit" class="btn btn-dark" value="Register" />
         </form>
         <button type="button" class="btn btn-dark" id="sign-out-button">Sign Out</button>
         <button type="button" class="btn btn-dark" id="show-change-password">Change Password</button>
         <form id="change-password">
-            <input name="passwords[old]" type="password" placeholder="Old Password" />
-            <input name="passwords[new]" type="password" placeholder="New Password" />
+            <input class="form-control" name="passwords[old]" type="password" placeholder="Old Password" />
+            <input class="form-control" name="passwords[new]" type="password" placeholder="New Password" />
             <input type="submit" class="btn btn-dark" value="Change Password" />
         </form>
         <button type="button" class="btn btn-dark" id="get-games">Get Games</button>
         <button type="button" class="btn btn-dark" id="new-game">New Game</button>
         <div class="container game-board text-center">
             <div class="row">
-                <div class="col-4 top left left-to-right game-tile" id="0"></div>
-                <div class="col-4 top middle-col game-tile" id="1"></div>
-                <div class="col-4 top right right-to-left game-tile" id="2"></div>
+                <div class="col-4 top left left-to-right game-tile" id="0-tile"></div>
+                <div class="col-4 top middle-col game-tile" id="1-tile"></div>
+                <div class="col-4 top right right-to-left game-tile" id="2-tile"></div>
             </div>
             <div class="row">
-                <div class="col-4 middle-row left game-tile" id="3"></div>
-                <div class="col-4 middle-row middle-col left-to-right right-to-left game-tile" id="4"></div>
-                <div class="col-4 middle-row right game-tile" id="5"></div>
+                <div class="col-4 middle-row left game-tile" id="3-tile"></div>
+                <div class="col-4 middle-row middle-col left-to-right right-to-left game-tile" id="4-tile"></div>
+                <div class="col-4 middle-row right game-tile" id="5-tile"></div>
             </div>
             <div class="row">
-                <div class="col-4 bottom left right-to-left game-tile" id="6"></div>
-                <div class="col-4 bottom middle-col game-tile" id="7"></div>
-                <div class="col-4 bottom right left-to-right game-tile" id="8"></div>
+                <div class="col-4 bottom left right-to-left game-tile" id="6-tile"></div>
+                <div class="col-4 bottom middle-col game-tile" id="7-tile"></div>
+                <div class="col-4 bottom right left-to-right game-tile" id="8-tile"></div>
             </div>
         </div>
-        <div class="display-games"></div>
+        <table class="display-games table table-bordered table-dark table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Board</th>
+                    <th scope="col">Game Over</th>
+                    <th scope="col">Player X</th>
+                    <th scope="col">Player O</th>
+                </tr>
+                <tbody class="game-table">
+
+                </tbody>
+            </thead>
+        </table>
     </body>
 </html>

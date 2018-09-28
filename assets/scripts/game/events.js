@@ -20,9 +20,10 @@ const onGetGames = function (event) {
 }
 
 const onMakeMove = function(event) {
+    $(".game-board").css("pointer-events", "none")
     event.preventDefault()
     ui.clearDisplayMessage()
-    const index = event.currentTarget.id
+    const index = parseInt(event.target.id, 10)
     if (!('game' in store)) {
         ui.startNewGame()
         return
@@ -54,6 +55,7 @@ const onMakeMove = function(event) {
         }
     } else {
        ui.spotTaken()
+       $(".game-board").css("pointer-events", "auto");
     }
 }
 
