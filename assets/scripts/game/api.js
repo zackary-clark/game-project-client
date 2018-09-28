@@ -13,6 +13,16 @@ const getGames = function () {
     })
 }
 
+const getGame = function (id) {
+    return $.ajax({
+        url: config.apiUrl + '/games/' + id,
+        headers: {
+            "Authorization": "Bearer " + store.user.token
+        },
+        method: 'GET'
+    })
+}
+
 const newGame = function () {
     return $.ajax({
         url: config.apiUrl + '/games',
@@ -45,5 +55,6 @@ const updateGame = function (index, char, over) {
 module.exports = {
     getGames,
     newGame,
-    updateGame
+    updateGame,
+    getGame
 }

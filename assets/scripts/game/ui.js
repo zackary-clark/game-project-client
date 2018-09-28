@@ -8,22 +8,22 @@ const updateGameBoard = function (data) {
         $(`#${i}-tile`).html(`${data.game.cells[i]}`)
     }
     store.game = data.game
-    $(".game-board").css("pointer-events", "auto")
 }
 
 const updateGameBoardFailure = function (data) {
     $('.display-message').text('Game API Request Failed!')
     $('.display-message').css('color', 'red')
     store.gameBoard = store.game.cells
-    $(".game-board").css("pointer-events", "auto")
 }
 
 const refreshBoard = function (data) {
     logic.storeNewGame(data)
     for (let i = 0; i < store.game.cells.length; i++) {
-        $(`#${i}-tile`).html('')
+        $(`#${i}-tile`).html(store.game.cells[i])
         $(`#${i}-tile`).css('background-color', '#343a40')
     }
+    const winReturn = logic.checkForWin(store.game.cells)
+    gameOverWin(winReturn[2])
     $('.game-board').show()
     clearDisplayMessage()
     $('.game-table').html('')

@@ -29,8 +29,11 @@ $(() => {
     $('#change-password').on('submit', authEvents.onChangePassword)
     $('#sign-out-button').on('click', authEvents.onSignOut)
 
-    // add event handlers gor game api use
+    // add event handlers for game api use
     $('#get-games').on('click', gameEvents.onGetGames)
+
+    // add event handlers to mini-boards
+    $('.game-table').on('click', gameEvents.onMiniGames)
 
     // make moves if tiles are clicked on
     $('.game-board').on('click', gameEvents.onMakeMove)

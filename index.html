@@ -17,31 +17,46 @@
     <body>
         <h1>Tic Tac Toe</h1>
         <div class="display-message"></div>
-        <form id="sign-in-form">
-            <div class="form-group">
-                <label for="sign-in-email">Email address</label>
-                <input required class="form-control" id="sign-in-email" name="credentials[email]" type="email" placeholder="Email" />
-            </div>
-            <div class="form-group">
-                <label for="sign-in-pass">Password</label>
-                <input required class="form-control" id="sign-in-pass" name="credentials[password]" type="password" placeholder="Enter Password" />
-            </div>
-            <input class="btn btn-dark" type="submit" value="Sign In" />
-        </form>
-        <button type="button" class="btn btn-dark" id="sign-up-button">Register</button>
-        <form id="sign-up-form">
-            <input required class="form-control" name="credentials[email]" type="email" placeholder="Enter Email" />
-            <input required class="form-control" name="credentials[password]" type="password" placeholder="Enter Password" />
-            <input required class="form-control" name="credentials[password_confirmation]" type="password" placeholder="Confirm Password" />
-            <input type="submit" class="btn btn-dark" value="Register" />
-        </form>
+        <div class="col-12 col-md-6 col-lg-4 float-md-left">
+            <form id="sign-in-form">
+                <div class="form-group">
+                    <label for="sign-in-email">Email address</label>
+                    <input required class="form-control" id="sign-in-email" name="credentials[email]" type="email" placeholder="Email" />
+                </div>
+                <div class="form-group">
+                    <label for="sign-in-pass">Password</label>
+                    <input required class="form-control" id="sign-in-pass" name="credentials[password]" type="password" placeholder="Enter Password" />
+                </div>
+                <input class="btn btn-dark" type="submit" value="Sign In" />
+                <button type="button" class="btn btn-dark float-none" id="sign-up-button">Register</button>
+            </form>
+        </div> 
+        <div class="col-12 col-md-6 col-lg-4 float-md-right">
+            <form id="sign-up-form">
+                <div class="form-group">
+                    <label for="sign-up-email">Email address</label>
+                    <input required class="form-control" id="sign-up-email" name="credentials[email]" type="email" placeholder="Enter Email" />
+                </div>
+                <div class="form-group">
+                    <label for="sign-up-password">Password</label>
+                    <input required class="form-control" id="sign-up-password" name="credentials[password]" type="password" placeholder="Enter Password" />
+                    <input required class="form-control" name="credentials[password_confirmation]" type="password" placeholder="Confirm Password" />
+                    <small id="confirm-password-help" class="form-text text-muted">Passwords must match!</small>
+                </div>
+                <input type="submit" class="btn btn-dark" value="Register" />
+            </form>
+        </div>
         <button type="button" class="btn btn-dark" id="sign-out-button">Sign Out</button>
         <button type="button" class="btn btn-dark" id="show-change-password">Change Password</button>
-        <form id="change-password">
-            <input class="form-control" name="passwords[old]" type="password" placeholder="Old Password" />
-            <input class="form-control" name="passwords[new]" type="password" placeholder="New Password" />
-            <input type="submit" class="btn btn-dark" value="Change Password" />
-        </form>
+        <div class="col-12 col-md-6 col-lg-4 float-md-left">
+            <form id="change-password">
+                <div class="form-group">
+                    <input class="form-control" name="passwords[old]" type="password" placeholder="Old Password" />
+                    <input class="form-control" name="passwords[new]" type="password" placeholder="New Password" />
+                </div>
+                <input type="submit" class="btn btn-dark" value="Change Password" />
+            </form>
+        </div>
         <button type="button" class="btn btn-dark" id="get-games">Get Games</button>
         <button type="button" class="btn btn-dark" id="new-game">New Game</button>
         <div class="container game-board text-center">

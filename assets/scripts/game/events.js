@@ -20,7 +20,6 @@ const onGetGames = function (event) {
 }
 
 const onMakeMove = function(event) {
-    $(".game-board").css("pointer-events", "none")
     event.preventDefault()
     ui.clearDisplayMessage()
     const index = parseInt(event.target.id, 10)
@@ -54,13 +53,22 @@ const onMakeMove = function(event) {
                 .catch(ui.updateGameBoardFailure)
         }
     } else {
-       ui.spotTaken()
-       $(".game-board").css("pointer-events", "auto");
+        ui.spotTaken()
+    }
+}
+
+const onMiniGames = function (event) {
+    const miniBoard = event.target.parentNode.parentNode.parentNode.parentNode
+    if (miniBoard.id) {
+        api.getGame(miniBoard.id)
+            .then(ui.refreshBoard)
+            .catch(ui.failure)
     }
 }
 
 module.exports = {
     onMakeMove,
     onNewGame,
-    onGetGames
+    onGetGames,
+    onMiniGames
 }

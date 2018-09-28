@@ -15,7 +15,7 @@ const signUpSuccess = function(data) {
 }
 
 const signInSuccess = function(data) {
-    $('.display-message').text(`Successfully Signed In!\nID: ${data.user.id}`)
+    $('.display-message').text(`Successfully Signed In!\nUser: ${data.user.email}`)
     $('.display-message').css('color', 'green')
     store.user = data.user
     $('#sign-up-form').hide()
@@ -26,7 +26,6 @@ const signInSuccess = function(data) {
     $('#sign-up-form').trigger('reset')
     $('#sign-in-form').trigger('reset')
     $('#change-password').trigger('reset')
-    $('.game-board').show()
     $('#new-game').show()
     $('#get-games').show()
     $('.display-games').hide()
