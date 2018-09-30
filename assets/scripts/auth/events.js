@@ -26,6 +26,11 @@ const onShowChangePassword = function (event) {
     ui.showChangePassword()
 }
 
+const onHideChangePassword = function (event) {
+    event.preventDefault()
+    ui.hideChangePassword()
+}
+
 const onChangePassword = function(event) {
     event.preventDefault()
     const data = getFormFields(event.target)
@@ -53,5 +58,6 @@ module.exports = {
     onChangePassword,
     onSignOut,
     onShowChangePassword,
+    onHideChangePassword,
     onShowSignUp
 }

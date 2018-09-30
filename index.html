@@ -6,7 +6,6 @@
 
         <!-- Do not add `link` tags-->
         <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
-        <link href="https://fonts.googleapis.com/css?family=Caveat+Brush" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Rock+Salt" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Slabo+27px" rel="stylesheet">
 
@@ -15,50 +14,93 @@
         <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body>
-        <h1>Tic Tac Toe</h1>
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+            <span class="navbar-brand">Tic Tac Toe</span>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarList" aria-controls="navbarList" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarList">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" id="sign-out-button">Sign Out</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" id="show-change-password" data-toggle="modal" data-target="#change-password-modal">Change Password</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" id="get-games-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Get Games
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="#" id="get-all-games">Get All Games</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#" id="get-complete-games">Get Complete Games</a>
+                            <a class="dropdown-item" href="#" id="get-incomplete-games">Get Incomplete Games</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" id="new-game">New Game</a>
+                    </li>
+                </ul>
+                <span class="navbar-text" id="current-user"></span>
+            </div>
+        </nav>
         <div class="display-message"></div>
-        <div class="col-12 col-md-6 col-lg-4 float-md-left">
-            <form id="sign-in-form">
-                <div class="form-group">
-                    <label for="sign-in-email">Email address</label>
-                    <input required class="form-control" id="sign-in-email" name="credentials[email]" type="email" placeholder="Email" />
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 col-sm-6 col-lg-4 col-xl-3 float-md-left">
+                    <form id="sign-in-form">
+                        <div class="form-group">
+                            <label for="sign-in-email">Email address</label>
+                            <input required class="form-control" id="sign-in-email" name="credentials[email]" type="email" placeholder="Email" />
+                        </div>
+                        <div class="form-group">
+                            <label for="sign-in-pass">Password</label>
+                            <input required class="form-control" id="sign-in-pass" name="credentials[password]" type="password" placeholder="Enter Password" />
+                        </div>
+                        <input class="btn btn-dark" type="submit" value="Sign In" />
+                        <button type="button" class="btn btn-dark float-none" id="sign-up-button">Register</button>
+                    </form>
                 </div>
-                <div class="form-group">
-                    <label for="sign-in-pass">Password</label>
-                    <input required class="form-control" id="sign-in-pass" name="credentials[password]" type="password" placeholder="Enter Password" />
+                <div class="col-12 col-sm-6 col-lg-4 col-xl-3">
+                    <form id="sign-up-form">
+                        <div class="form-group">
+                            <label for="sign-up-email">Email address</label>
+                            <input required class="form-control" id="sign-up-email" name="credentials[email]" type="email" placeholder="Enter Email" />
+                        </div>
+                        <div class="form-group">
+                            <label for="sign-up-password">Password</label>
+                            <input required class="form-control" id="sign-up-password" name="credentials[password]" type="password" placeholder="Enter Password" />
+                            <input required class="form-control" name="credentials[password_confirmation]" type="password" placeholder="Confirm Password" />
+                            <small id="confirm-password-help" class="form-text text-muted">Passwords must match!</small>
+                        </div>
+                        <input type="submit" class="btn btn-dark" value="Register" />
+                    </form>
                 </div>
-                <input class="btn btn-dark" type="submit" value="Sign In" />
-                <button type="button" class="btn btn-dark float-none" id="sign-up-button">Register</button>
-            </form>
-        </div> 
-        <div class="col-12 col-md-6 col-lg-4 float-md-right">
-            <form id="sign-up-form">
-                <div class="form-group">
-                    <label for="sign-up-email">Email address</label>
-                    <input required class="form-control" id="sign-up-email" name="credentials[email]" type="email" placeholder="Enter Email" />
-                </div>
-                <div class="form-group">
-                    <label for="sign-up-password">Password</label>
-                    <input required class="form-control" id="sign-up-password" name="credentials[password]" type="password" placeholder="Enter Password" />
-                    <input required class="form-control" name="credentials[password_confirmation]" type="password" placeholder="Confirm Password" />
-                    <small id="confirm-password-help" class="form-text text-muted">Passwords must match!</small>
-                </div>
-                <input type="submit" class="btn btn-dark" value="Register" />
-            </form>
+                <div class ="col-12 col-lg-4 col-xl-6"></div>
+            </div>
         </div>
-        <button type="button" class="btn btn-dark" id="sign-out-button">Sign Out</button>
-        <button type="button" class="btn btn-dark" id="show-change-password">Change Password</button>
-        <div class="col-12 col-md-6 col-lg-4 float-md-left">
-            <form id="change-password">
-                <div class="form-group">
-                    <input class="form-control" name="passwords[old]" type="password" placeholder="Old Password" />
-                    <input class="form-control" name="passwords[new]" type="password" placeholder="New Password" />
+        <div class="modal fade" id="change-password-modal" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Change Password</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="change-password">
+                            <div class="form-group">
+                                <input class="form-control" name="passwords[old]" type="password" placeholder="Old Password" />
+                                <input class="form-control" name="passwords[new]" type="password" placeholder="New Password" />
+                            </div>
+                            <input type="submit" class="btn btn-dark " value="Submit" />
+                        </form>
+                    </div>
                 </div>
-                <input type="submit" class="btn btn-dark" value="Change Password" />
-            </form>
+            </div>
         </div>
-        <button type="button" class="btn btn-dark" id="get-games">Get Games</button>
-        <button type="button" class="btn btn-dark" id="new-game">New Game</button>
         <div class="container game-board text-center">
             <div class="row">
                 <div class="col-4 top left left-to-right game-tile" id="0-tile"></div>
@@ -75,20 +117,29 @@
                 <div class="col-4 bottom middle-col game-tile" id="7-tile"></div>
                 <div class="col-4 bottom right left-to-right game-tile" id="8-tile"></div>
             </div>
+            <div class="row">
+                <div class="col-4"></div>
+                <div class="col-4" id="current-player"></div>
+                <div class="col-4"></div>
+            </div>
         </div>
-        <table class="display-games table table-bordered table-dark table-hover">
-            <thead>
-                <tr>
-                    <th scope="col">ID</th>
-                    <th scope="col">Board</th>
-                    <th scope="col">Game Over</th>
-                    <th scope="col">Player X</th>
-                    <th scope="col">Player O</th>
-                </tr>
-                <tbody class="game-table">
+        <div class="table-container container-fluid">
+            <div class="justify-content-center games-page-buttons">
+            </div>
+            <table class="display-games table table-bordered table-dark table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Board</th>
+                        <th scope="col">Game Over</th>
+                        <th scope="col">Player X</th>
+                        <th scope="col">Player O</th>
+                    </tr>
+                    <tbody class="game-table">
 
-                </tbody>
-            </thead>
-        </table>
+                    </tbody>
+                </thead>
+            </table>
+        </div>
     </body>
 </html>

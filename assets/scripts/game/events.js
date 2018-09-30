@@ -12,11 +12,30 @@ const onNewGame = function(event) {
         .catch(ui.failure)
 }
 
-const onGetGames = function (event) {
+const onGetAllGames = function (event) {
     event.preventDefault()
-    api.getGames()
-        .then(ui.showGetGames)
+    api.getAllGames()
+        .then(ui.showGames)
         .catch(ui.failure)
+}
+
+const onGetCompleteGames = function (event) {
+    event.preventDefault()
+    api.getCompleteGames()
+        .then(ui.showGames)
+        .catch(ui.failure)
+}
+
+const onGetIncompleteGames = function (event) {
+    event.preventDefault()
+    api.getIncompleteGames()
+        .then(ui.showGames)
+        .catch(ui.failure)
+}
+
+const onPageButtonClick = function (event) {
+    event.preventDefault()
+    ui.showPage(event.target.innerHTML)
 }
 
 const onMakeMove = function(event) {
@@ -31,10 +50,10 @@ const onMakeMove = function(event) {
         return
     }
     const gameBoard = store.gameBoard
-    const char = store.currentTurn === 'player_x' ? 'x' : 'o'
+    const char = store.currentTurn === 'Player X' ? 'x' : 'o'
     if (gameBoard[index] === '') {
         gameBoard[index] = char
-        store.currentTurn = store.currentTurn === 'player_x' ? 'player_o' : 'player_x'
+        store.currentTurn = store.currentTurn === 'Player X' ? 'Player O' : 'Player X'
         const winReturn = logic.checkForWin(gameBoard)
         if (winReturn[0]) {
             api.updateGame(index, char, true)
@@ -69,6 +88,9 @@ const onMiniGames = function (event) {
 module.exports = {
     onMakeMove,
     onNewGame,
-    onGetGames,
-    onMiniGames
+    onGetAllGames,
+    onMiniGames,
+    onGetCompleteGames,
+    onGetIncompleteGames,
+    onPageButtonClick
 }

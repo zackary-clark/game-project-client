@@ -1,23 +1,43 @@
 @import '~bootstrap/scss/bootstrap';
 
+$board-width-xs: 300px;
+$board-width-sm: 450px;
+$board-width-md: 600px;
+$board-width-lg: 750px;
+$board-width-xl: 900px;
+
+$mini-board-width-xs: 90px;
+$mini-board-width-sm: 120px;
+$mini-board-width-md: 150px;
+$mini-board-width-lg: 180px;
+$mini-board-width-xl: 240px;
+
 body {
     background-color: #000000;
     color: #B7B7AB;
-    font-family: 'Slabo 27px', serif;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.modal-title {
+    color: #000000;
 }
 
 .game-board {
-    max-width: 600px;
     color: #B7B7AB;
 
     .game-tile {
         background-color: #343a40;
-        width: 200px;
-        height: 200px;
-        line-height: 180px;
-        font-size: 100px;
-        border: 3px solid #000000;
+        border: 3px solid #000000; 
     }
+}
+
+.table-container {
+    margin: 0;
+    padding: 0;
+}
+
+.page-btn {
+    width: 40px;
 }
 
 .game-tile {
@@ -25,22 +45,162 @@ body {
 }
 
 .mini-board {
-    max-width: 150px;
     color: #B7B7AB;
     margin: 0 auto;
 
     .row {
-        max-width: 150px;
         margin: 0;
     }
 
     .game-tile {
         background-color: #343a40;
-        width: 50px;
-        height: 50px;
-        line-height: 45px;
-        font-size: 35px;
         margin: 0;
         border: 1px solid #000000;
+    }
+}
+
+// Begin defining responsive characteristics for the game-boards
+@include media-breakpoint-up(xs) {
+    .game-board {
+        max-width: $board-width-xs;
+        margin: $board-width-xs/20;
+
+        .game-tile {
+            width: $board-width-xs/3;
+            height: $board-width-xs/3;
+            line-height: $board-width-xs*0.3;
+            font-size: $board-width-xs/6;  
+        }
+    }
+
+    .mini-board {
+        max-width: $mini-board-width-sm;
+
+        .row {
+            min-width: $mini-board-width-sm;
+        }
+
+        .game-tile {
+            width: $mini-board-width-sm/3;
+            height: $mini-board-width-sm/3;
+            line-height: $mini-board-width-sm*0.3;
+            font-size: $mini-board-width-sm/6;
+        }
+    }
+}
+
+@include media-breakpoint-up(sm) {
+    .game-board {
+        max-width: $board-width-sm;
+        margin: $board-width-sm/20;
+
+        .game-tile {
+            width: $board-width-sm/3;
+            height: $board-width-sm/3;
+            line-height: $board-width-sm*0.3;
+            font-size: $board-width-sm/6;  
+        }
+    }
+
+    .mini-board {
+        max-width: $mini-board-width-sm;
+
+        .row {
+            min-width: $mini-board-width-sm;
+        }
+
+        .game-tile {
+            width: $mini-board-width-sm/3;
+            height: $mini-board-width-sm/3;
+            line-height: $mini-board-width-sm*0.3;
+            font-size: $mini-board-width-sm/6;
+        }
+    }
+}
+
+@include media-breakpoint-up(md) {
+    .game-board {
+        max-width: $board-width-md;
+        margin: $board-width-md/20;
+
+        .game-tile {
+            width: $board-width-md/3;
+            height: $board-width-md/3;
+            line-height: $board-width-md*0.3;
+            font-size: $board-width-md/6;  
+        }
+    }
+
+    .mini-board {
+        max-width: $mini-board-width-md;
+
+        .row {
+            min-width: $mini-board-width-md;
+        }
+
+        .game-tile {
+            width: $mini-board-width-md/3;
+            height: $mini-board-width-md/3;
+            line-height: $mini-board-width-md*0.3;
+            font-size: $mini-board-width-md/6;
+        }
+    }
+}
+
+@include media-breakpoint-up(lg) {
+    .game-board {
+        max-width: $board-width-lg;
+        margin: $board-width-lg/20;
+
+        .game-tile {
+            width: $board-width-lg/3;
+            height: $board-width-lg/3;
+            line-height: $board-width-lg*0.3;
+            font-size: $board-width-lg/6;  
+        }
+    }
+
+    .mini-board {
+        max-width: $mini-board-width-lg;
+
+        .row {
+            min-width: $mini-board-width-lg;
+        }
+
+        .game-tile {
+            width: $mini-board-width-lg/3;
+            height: $mini-board-width-lg/3;
+            line-height: $mini-board-width-lg*0.3;
+            font-size: $mini-board-width-lg/6;
+        }
+    }
+}
+
+@include media-breakpoint-up(xl) {
+    .game-board {
+        max-width: $board-width-xl;
+        margin: $board-width-xl/20;
+
+        .game-tile {
+            width: $board-width-xl/3;
+            height: $board-width-xl/3;
+            line-height: $board-width-xl*0.3;
+            font-size: $board-width-xl/6;  
+        }
+    }
+
+    .mini-board {
+        max-width: $mini-board-width-xl;
+
+        .row {
+            min-width: $mini-board-width-xl;
+        }
+
+        .game-tile {
+            width: $mini-board-width-xl/3;
+            height: $mini-board-width-xl/3;
+            line-height: $mini-board-width-xl*0.3;
+            font-size: $mini-board-width-xl/6;
+        }
     }
 }

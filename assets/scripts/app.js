@@ -11,26 +11,31 @@ const authEvents = require('./auth/events')
 
 $(() => {
     // hide pieces which should be hidden upon refresh
-    $('#change-password').hide()
     $('#show-change-password').hide()
     $('#sign-out-form').hide()
     $('#sign-up-form').hide()
     $('#sign-out-button').hide()
     $('#new-game').hide()
     $('.game-board').hide()
-    $('#get-games').hide()
-    $('.display-games').hide()
+    $('#get-games-dropdown').hide()
+    $('.table-container').hide()
 
     // add event handlers for user api use
     $('#sign-up-form').on('submit', authEvents.onSignUp)
     $('#sign-in-form').on('submit', authEvents.onSignIn)
     $('#sign-up-button').on('click', authEvents.onShowSignUp)
-    $('#show-change-password').on('click', authEvents.onShowChangePassword)
+    //$('#show-change-password').on('click', authEvents.onShowChangePassword)
+    //$('#cancel-change-password').on('click', authEvents.onHideChangePassword)
     $('#change-password').on('submit', authEvents.onChangePassword)
     $('#sign-out-button').on('click', authEvents.onSignOut)
 
     // add event handlers for game api use
-    $('#get-games').on('click', gameEvents.onGetGames)
+    $('#get-all-games').on('click', gameEvents.onGetAllGames)
+    $('#get-complete-games').on('click', gameEvents.onGetCompleteGames)
+    $('#get-incomplete-games').on('click', gameEvents.onGetIncompleteGames)
+
+    // add event handlers to page buttons
+    $('.games-page-buttons').on('click', gameEvents.onPageButtonClick)
 
     // add event handlers to mini-boards
     $('.game-table').on('click', gameEvents.onMiniGames)

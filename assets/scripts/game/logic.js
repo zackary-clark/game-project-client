@@ -29,7 +29,7 @@ const checkForWin = function(board) {
 const storeNewGame = function (data) {
     store.game = data.game
     store.gameBoard = data.game.cells
-    data.game.cells.filter(cell => cell !== '').length%2 === 0 ? store.currentTurn = 'player_x' : store.currentTurn = 'player_o'
+    data.game.cells.filter(cell => cell !== '').length%2 === 0 ? store.currentTurn = 'Player X' : store.currentTurn = 'Player O'
 }
 
 module.exports = {
