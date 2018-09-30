@@ -35,13 +35,13 @@ const onGetIncompleteGames = function (event) {
 
 const onPageButtonClick = function (event) {
     event.preventDefault()
-    ui.showPage(event.target.innerHTML)
+    if (event.target.className === "btn btn-dark page-btn")
+        ui.showPage(event.target.innerHTML)
 }
 
-const onMakeMove = function(event) {
+const onBoardClick = function (event) {
     event.preventDefault()
     ui.clearDisplayMessage()
-    const index = parseInt(event.target.id, 10)
     if (!('game' in store)) {
         ui.startNewGame()
         return
@@ -49,6 +49,25 @@ const onMakeMove = function(event) {
         ui.startNewGame()
         return
     }
+    if (event.target.className.includes("game-tile")) {
+        onMakeMove(parseInt(event.target.id, 10))
+    }
+}
+
+const onAIClick = function (event) {
+    event.preventDefault()
+    ui.clearDisplayMessage()
+    if (!('game' in store)) {
+        ui.startNewGame()
+        return
+    } else if (store.game.over) {
+        ui.startNewGame()
+        return
+    }
+    onMakeMove(logic.determineAIIndex())
+}
+
+const onMakeMove = function(index) {
     const gameBoard = store.gameBoard
     const char = store.currentTurn === 'Player X' ? 'x' : 'o'
     if (gameBoard[index] === '') {
@@ -61,7 +80,6 @@ const onMakeMove = function(event) {
                 .catch(ui.updateGameBoardFailure)
             store.game.over = true
             if (winReturn[1] !== '') {
-                // console.log(`Player ${winReturn[1]} Won!\nThe winning line was ${winReturn[2]}`)
                 ui.gameOverWin(winReturn[2])
             } else {
                 ui.gameOverDraw()
@@ -92,5 +110,7 @@ module.exports = {
     onMiniGames,
     onGetCompleteGames,
     onGetIncompleteGames,
-    onPageButtonClick
+    onPageButtonClick,
+    onBoardClick,
+    onAIClick
 }

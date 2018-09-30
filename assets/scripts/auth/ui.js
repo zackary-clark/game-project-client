@@ -29,6 +29,7 @@ const signInSuccess = function(data) {
     $('#new-game').show()
     $('#get-games-dropdown').show()
     $('.table-container').hide()
+    $('.navbar-toggler').css('visibility', 'visible')
 }
 
 const changePasswordSuccess = function() {
@@ -36,15 +37,6 @@ const changePasswordSuccess = function() {
     $('.display-message').css('color', 'green')
     $('#change-password').trigger('reset')
     $('#change-password-modal').modal('hide')
-}
-
-const showChangePassword = function() {
-    $('#show-change-password').hide()
-    $('#change-password').show()
-    $('.game-board').hide()
-    $('#new-game').hide()
-    $('#get-games-dropdown').hide()
-    $('.table-container').hide()
 }
 
 const hideChangePassword = function () {
@@ -99,7 +91,6 @@ module.exports = {
     changePasswordSuccess,
     signOutSuccess,
     showSignUp,
-    showChangePassword,
     clearDisplayMessage,
     hideChangePassword
 }

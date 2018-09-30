@@ -16,7 +16,7 @@
     <body>
         <nav class="navbar navbar-expand-md navbar-dark bg-dark">
             <span class="navbar-brand">Tic Tac Toe</span>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarList" aria-controls="navbarList" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarList">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarList">
@@ -28,10 +28,10 @@
                         <a class="nav-link" href="#" id="show-change-password" data-toggle="modal" data-target="#change-password-modal">Change Password</a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" id="get-games-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" id="get-games-dropdown" data-toggle="dropdown">
                             Get Games
                         </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <div class="dropdown-menu">
                             <a class="dropdown-item" href="#" id="get-all-games">Get All Games</a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="#" id="get-complete-games">Get Complete Games</a>
@@ -45,7 +45,6 @@
                 <span class="navbar-text" id="current-user"></span>
             </div>
         </nav>
-        <div class="display-message"></div>
         <div class="container-fluid">
             <div class="row">
                 <div class="col-12 col-sm-6 col-lg-4 col-xl-3 float-md-left">
@@ -80,20 +79,20 @@
                 <div class ="col-12 col-lg-4 col-xl-6"></div>
             </div>
         </div>
-        <div class="modal fade" id="change-password-modal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal fade" id="change-password-modal" tabindex="-1" role="dialog">
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title">Change Password</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
+                        <button type="button" class="close" data-dismiss="modal">
+                            <span>&times;</span>
                         </button>
                     </div>
                     <div class="modal-body">
                         <form id="change-password">
                             <div class="form-group">
-                                <input class="form-control" name="passwords[old]" type="password" placeholder="Old Password" />
-                                <input class="form-control" name="passwords[new]" type="password" placeholder="New Password" />
+                                <input required class="form-control" name="passwords[old]" type="password" placeholder="Old Password" />
+                                <input required class="form-control" name="passwords[new]" type="password" placeholder="New Password" />
                             </div>
                             <input type="submit" class="btn btn-dark " value="Submit" />
                         </form>
@@ -101,6 +100,7 @@
                 </div>
             </div>
         </div>
+        <div class="display-message"></div>
         <div class="container game-board text-center">
             <div class="row">
                 <div class="col-4 top left left-to-right game-tile" id="0-tile"></div>
@@ -118,9 +118,11 @@
                 <div class="col-4 bottom right left-to-right game-tile" id="8-tile"></div>
             </div>
             <div class="row">
+                <div class="col-4">
+                    <button type="button" class="btn btn-dark" id="ai-move-button">Let AI Decide</button>
+                </div>
                 <div class="col-4"></div>
                 <div class="col-4" id="current-player"></div>
-                <div class="col-4"></div>
             </div>
         </div>
         <div class="table-container container-fluid">
@@ -135,9 +137,7 @@
                         <th scope="col">Player X</th>
                         <th scope="col">Player O</th>
                     </tr>
-                    <tbody class="game-table">
-
-                    </tbody>
+                    <tbody class="game-table"></tbody>
                 </thead>
             </table>
         </div>

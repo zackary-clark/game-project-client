@@ -32,7 +32,7 @@ const refreshBoard = function (data) {
 }
 
 const updateCurrentPlayer = function () {
-    $('#current-player').html(`Current Player: ${store.currentTurn}`)
+    $('#current-player').html(`${store.currentTurn}, You're up!`)
 }
 
 const gameOverWin = function (gridLine) {
@@ -90,7 +90,7 @@ const populateButtons = function () {
 }
 
 const showPage = function (page) {
-    store.currentPage = store.games.slice((page-1)*10, (page-1)*10+9)
+    store.currentPage = store.games.slice((page-1)*10, (page-1)*10+10)
     $('.table-container').show()
     clearDisplayMessage()
     $('.game-board').hide()

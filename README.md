@@ -29,3 +29,9 @@ https://zclark0625.github.io/game-project-client/
     - This should include total games played, games won, and games lost
 
     - Stretch: be able to continue an unfinished game stored on the server
+
+# References
+
+https://medium.com/@alialaa/tic-tac-toe-with-javascript-es2015-ai-player-with-minimax-algorithm-59f069f46efa
+
+https://www.neverstopbuilding.com/blog/minimax

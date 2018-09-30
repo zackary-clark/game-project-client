@@ -12,13 +12,13 @@ const authEvents = require('./auth/events')
 $(() => {
     // hide pieces which should be hidden upon refresh
     $('#show-change-password').hide()
-    $('#sign-out-form').hide()
     $('#sign-up-form').hide()
     $('#sign-out-button').hide()
     $('#new-game').hide()
     $('.game-board').hide()
     $('#get-games-dropdown').hide()
     $('.table-container').hide()
+    $('.navbar-toggler').css('visibility', 'hidden')
 
     // add event handlers for user api use
     $('#sign-up-form').on('submit', authEvents.onSignUp)
@@ -41,7 +41,8 @@ $(() => {
     $('.game-table').on('click', gameEvents.onMiniGames)
 
     // make moves if tiles are clicked on
-    $('.game-board').on('click', gameEvents.onMakeMove)
+    $('.game-board').on('click', gameEvents.onBoardClick)
+    $('#ai-move-button').on('click', gameEvents.onAIClick)
 
     // create new game
     $('#new-game').on('click', gameEvents.onNewGame)
