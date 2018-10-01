@@ -73,6 +73,7 @@ const signOutSuccess = function() {
     $('.table-container').hide()
     $('.game-table').html('')
     $('.table-container').hide()
+    $('.navbar-toggler').css('visibility', 'hidden')
 }
 
 const failure = function() {
