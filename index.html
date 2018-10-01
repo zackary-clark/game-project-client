@@ -41,6 +41,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#" id="new-game">New Game</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" id="join-game" data-toggle="modal" data-target="#join-game-modal">Join Game</a>
+                    </li>
                 </ul>
                 <span class="navbar-text" id="current-user"></span>
             </div>
@@ -95,6 +98,26 @@
                                 <input required class="form-control" name="passwords[new]" type="password" placeholder="New Password" />
                             </div>
                             <input type="submit" class="btn btn-dark " value="Submit" />
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="join-game-modal" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Join Game</h5>
+                        <button type="button" class="close" data-dismiss="modal">
+                            <span>&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="join-game-form">
+                            <div class="form-group">
+                                <input required class="form-control" name="id" type="password" placeholder="Game ID" />
+                            </div>
+                            <input type="submit" class="btn btn-dark " value="Join" />
                         </form>
                     </div>
                 </div>

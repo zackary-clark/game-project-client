@@ -51,6 +51,16 @@ const newGame = function () {
     })
 }
 
+const joinGame = function (data) {
+    return $.ajax({
+        url: config.apiUrl + '/games/' + data.id,
+        headers: {
+            "Authorization": "Bearer " + store.user.token
+        },
+        method: 'PATCH'
+    })
+}
+
 const updateGame = function (index, char, over) {
     return $.ajax({
         url: config.apiUrl + '/games/' + store.game.id,
@@ -73,6 +83,7 @@ const updateGame = function (index, char, over) {
 module.exports = {
     getAllGames,
     newGame,
+    joinGame,
     updateGame,
     getGame,
     getCompleteGames,

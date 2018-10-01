@@ -4,11 +4,20 @@ const store = require('../store')
 const api = require('./api')
 const ui = require('./ui')
 const logic = require('./logic')
+const getFormFields = require('../../../lib/get-form-fields')
 
 const onNewGame = function(event) {
     event.preventDefault()
     api.newGame()
         .then(ui.refreshBoard)
+        .catch(ui.failure)
+}
+
+const onJoinGame = function (event) {
+    event.preventDefault()
+    const data = getFormFields(event.target)
+    api.joinGame(data)
+        .then(ui.joinGame)
         .catch(ui.failure)
 }
 
@@ -112,5 +121,6 @@ module.exports = {
     onGetIncompleteGames,
     onPageButtonClick,
     onBoardClick,
-    onAIClick
+    onAIClick,
+    onJoinGame
 }

@@ -59,11 +59,11 @@ const getBestMove = function (board, maxOrMin = true, depth = 0) {
     // reach the last node in the branch and return the "score"
     if (checkForWin(board)[0]) {
         if(checkForWin(board)[1] === 'x') {
-            return 10 - depth
+            return 100 - depth
         } else if (checkForWin(board)[1] === 'o') {
-            return -10 + depth
+            return -100
         } 
-        return 0
+        return 0 + depth
     }
     // current player is maximizing score, i.e. the current player is 'x'
     if (maxOrMin) {

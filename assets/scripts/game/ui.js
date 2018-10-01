@@ -17,6 +17,12 @@ const updateGameBoardFailure = function (data) {
     store.gameBoard = store.game.cells
 }
 
+const joinGame = function (data) {
+    $('#join-game-modal').modal('hide')
+    refreshBoard(data)
+    console.log(data)
+}
+
 const refreshBoard = function (data) {
     logic.storeNewGame(data)
     for (let i = 0; i < store.game.cells.length; i++) {
@@ -106,7 +112,7 @@ const populateTable = function (game) {
             <td class="mini-board-td">${drawMiniBoard(game)}</td>
             <td>${game.over}</td>
             <td class="player-col">${game.player_x.email}</td>
-            <td class="player-col">${game.player ? game.player_o.email : 'None'}</td>
+            <td class="player-col">${game.player_o ? game.player_o.email : 'None'}</td>
         </tr>`)
     $('.game-table').append(gameHTML)
     if (winReturn[1] !== '') {
@@ -152,5 +158,6 @@ module.exports = {
     failure,
     updateGameBoardFailure,
     startNewGame,
-    showPage
+    showPage,
+    joinGame
 }

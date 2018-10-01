@@ -15,6 +15,7 @@ $(() => {
     $('#sign-up-form').hide()
     $('#sign-out-button').hide()
     $('#new-game').hide()
+    $('#join-game').hide()
     $('.game-board').hide()
     $('#get-games-dropdown').hide()
     $('.table-container').hide()
@@ -46,4 +47,7 @@ $(() => {
 
     // create new game
     $('#new-game').on('click', gameEvents.onNewGame)
+
+    // join multiplayer game
+    $('#join-game-form').on('submit', gameEvents.onJoinGame)
 })

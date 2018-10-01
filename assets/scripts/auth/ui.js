@@ -27,6 +27,7 @@ const signInSuccess = function(data) {
     $('#sign-in-form').trigger('reset')
     $('#change-password').trigger('reset')
     $('#new-game').show()
+    $('#join-game').show()
     $('#get-games-dropdown').show()
     $('.table-container').hide()
     $('.navbar-toggler').css('visibility', 'visible')
@@ -43,6 +44,7 @@ const hideChangePassword = function () {
     $('#show-change-password').show()
     $('#change-password').hide()
     $('#new-game').show()
+    $('#join-game').show()
     $('#get-games-dropdown').show()
 }
 
@@ -68,6 +70,7 @@ const signOutSuccess = function() {
     $('#sign-out-button').hide()
     $('.game-board').hide()
     $('#new-game').hide()
+    $('#join-game').hide()
     $('#sign-up-button').show()
     $('#get-games-dropdown').hide()
     $('.table-container').hide()
